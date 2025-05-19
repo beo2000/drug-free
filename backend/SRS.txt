@@ -1,0 +1,65 @@
+Software Requirements Specification (SRS)
+1. Introduction
+Tên dự án: Drug Free
+Hệ thống hỗ trợ phòng ngừa sử dụng ma túy trong cộng đồng.
+Dự án được phát triển bởi một nhóm nhỏ trong thời gian giới hạn (5 tuần) với mục tiêu cung cấp nền tảng web giúp học tập, khảo sát nguy cơ và đặt lịch tư vấn, nhằm nâng cao nhận thức và phòng ngừa sử dụng ma túy.
+2. Overall Description
+Hệ thống gồm 6 loại người dùng: Guest, Member, Consultant, Staff, Manager, Admin.
+Người dùng có thể học online, làm khảo sát ASSIST/CRAFFT, đặt lịch tư vấn với chuyên gia, tham gia chương trình truyền thông cộng đồng và quản lý toàn bộ thông tin lịch sử cá nhân.
+3. Functional Requirements
+1.FR-1: Guest có thể xem trang chủ, blog, tài liệu.
+2.FR-2: Người dùng có thể đăng ký tài khoản Member, Consultant, Staff.
+3.FR-3: Consultant và Staff cần Admin duyệt để truy cập.
+4.FR-4: Xác thực tài khoản qua Firebase.
+5.FR-5: Member xem và đăng ký khóa học phù hợp theo nhóm tuổi.
+6.FR-6: Khóa học gồm nhiều chương, có thể có/không có video.
+7.FR-7: Điểm tổng kết >= 5 mới tính là hoàn thành.
+8.FR-8: Trao huân chương dựa trên điểm tổng kết.
+9.FR-9: Thành viên phải làm khảo sát trước khi học khóa đầu tiên.
+10.FR-10: Hệ thống đánh giá nguy cơ qua ASSIST/CRAFFT.
+11.FR-11: Khảo sát phù hợp nhóm tuổi.
+12.FR-12: Lưu kết quả khảo sát theo thời gian.
+13.FR-13: Chỉ hiển thị lịch có Consultant sẵn sàng.
+14.FR-14: Slot giữ trong 5 phút, hủy nếu không xác nhận.
+15.FR-15: Consultant có 2 giờ để phản hồi.
+16.FR-16: Không được chỉnh lịch <12h trước giờ hẹn.
+17.FR-17: Member chỉ được đặt 1 lịch tư vấn mỗi ngày.
+18.FR-18: Gửi nhắc lịch trước 1 ngày và 1 giờ.
+19.FR-19: Google Meet do Consultant thiết lập thủ công.
+20.FR-20: Box chat mở khi lịch confirmed, đóng bởi Consultant.
+21.FR-21: Consultant ghi nhận xét sau tư vấn, chỉ Admin xem.
+22.FR-22: Cảnh báo nếu Consultant chưa đánh giá trong ngày.
+23.FR-23: Manager tạo chương trình truyền thông.
+24.FR-24: Làm khảo sát trước khi dự kiến tham gia chương trình.
+25.FR-25: Check-in bằng QR hoặc thủ công.
+26.FR-26: Làm khảo sát sau chương trình nếu đã check-in.
+27.FR-27: Thống kê hiệu quả chương trình.
+28.FR-28: Admin quản lý toàn bộ hệ thống.
+29.FR-29: Manager chỉ xem được dữ liệu chương trình mình quản lý.
+30.FR-30: Tài khoản có hồ sơ cá nhân, xem lịch sử học, tư vấn.
+31.FR-31: Trang quản lý blog, bài viết, video công khai.
+4. System Architecture
+
+- Frontend: ReactJS + TailwindCSS
+- Backend: ASP.NET Core Web API (C#) + Entity Framework
+- Database: SQL Server
+- Auth: Firebase Authentication (token-based)
+- Realtime chat: SignalR
+- Media: Cloudinary
+- Deployment: VPS + CI/CD (GitHub Actions)
+- API docs: Swagger
+
+5. Business Rules (Tóm tắt)
+Chi tiết đã được phân loại theo nhóm chức năng: tài khoản, học tập, khảo sát, tư vấn, chương trình, thông báo,...
+6. Non-Functional Requirements
+- Hệ thống hoạt động tốt với tối đa 100 người dùng đồng thời.
+- Giao diện responsive, không cần mobile app.
+- Bảo mật vừa phải, không chứa thông tin nhạy cảm.
+- Mọi thao tác đều ghi log đơn giản để theo dõi.
+7. Development Environment
+
+- IDE: Cursor (AI-enhanced VS Code)
+- Git: GitHub (repo: beo2000/drug-free)
+- OS: Windows
+- SQL Server cài local hoặc cloud
+- Firebase Project + Cloudinary API Key
