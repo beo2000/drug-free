@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Gcu/syhgvU8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\LENOVO SLIM\\Desktop\\PX\\FPTU\\SWP391\\backend\\DrugFree.Api\\DrugFree.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LENOVO SLIM\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.4\\microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
+    "C:\\Users\\LENOVO SLIM\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

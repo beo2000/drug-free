@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "g/W6ntwDXMizwFjG0J1Wi2gQfmM8j4ImL0g3KHhk3io=",
+  "Source": "DrugFree.Api",
+  "BasePath": "_content/DrugFree.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
