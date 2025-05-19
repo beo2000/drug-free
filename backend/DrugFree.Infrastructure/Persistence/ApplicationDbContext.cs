@@ -10,6 +10,17 @@ public class ApplicationDbContext : DbContext
     {
     }
 
+    public DbSet<User> Users { get; set; } = null!;
+    public DbSet<Course> Courses { get; set; } = null!;
+    public DbSet<Chapter> Chapters { get; set; } = null!;
+    public DbSet<CourseEnrollment> CourseEnrollments { get; set; } = null!;
+    public DbSet<Survey> Surveys { get; set; } = null!;
+    public DbSet<SurveyQuestion> SurveyQuestions { get; set; } = null!;
+    public DbSet<SurveyResult> SurveyResults { get; set; } = null!;
+    public DbSet<Consultation> Consultations { get; set; } = null!;
+    public DbSet<Program> Programs { get; set; } = null!;
+    public DbSet<ProgramParticipation> ProgramParticipations { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -27,6 +38,35 @@ public class ApplicationDbContext : DbContext
                 modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
             }
         }
+
+        // Configure relationships and constraints
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+
+        modelBuilder.Entity<CourseEnrollment>()
+            .HasOne(ce => ce.User)
+            .WithMany(u => u.CourseEnrollments)
+            .HasForeignKey(ce => ce.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Consultation>()
+            .HasOne(c => c.Member)
+            .WithMany()
+            .HasForeignKey(c => c.MemberId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Consultation>()
+            .HasOne(c => c.Consultant)
+            .WithMany()
+            .HasForeignKey(c => c.ConsultantId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Program>()
+            .HasOne(p => p.Manager)
+            .WithMany()
+            .HasForeignKey(p => p.ManagerId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
