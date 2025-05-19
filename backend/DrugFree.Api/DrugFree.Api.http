@@ -1,6 +1,0 @@
-@DrugFree.Api_HostAddress = http://localhost:5139
-
-GET {{DrugFree.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
